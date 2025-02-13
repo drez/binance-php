@@ -399,4 +399,33 @@ class User extends Request
         $this->data = $data;
         return $this->exec();
     }
+
+    public function getEarnAccount(array $data = [], string $version = Version::V1)
+    {
+        $this->type = 'GET';
+        $this->path = '/sapi/' . $version . '/simple-earn/account';
+        $data['timestamp'] = time() . '000';
+        $this->data = $data;
+        return $this->exec();
+    }
+
+    public function getEarnLockedBalances(array $data = [], string $version = Version::V1)
+    {
+        $this->type = 'GET';
+        $this->path = '/sapi/' . $version . '/simple-earn/locked/position';
+        $data['timestamp'] = time() . '000';
+        $data['size'] = '100';
+        $this->data = $data;
+        return $this->exec();
+    }
+
+    public function getEarnFlexibleBalances(array $data = [], string $version = Version::V1)
+    {
+        $this->type = 'GET';
+        $this->path = '/sapi/' . $version . '/simple-earn/flexible/position';
+        $data['timestamp'] = time() . '000';
+        $data['size'] = '100';
+        $this->data = $data;
+        return $this->exec();
+    }
 }
