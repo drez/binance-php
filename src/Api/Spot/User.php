@@ -428,4 +428,15 @@ class User extends Request
         $this->data = $data;
         return $this->exec();
     }
+
+
+/**
+ * https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Exchange-Information
+ */    public function getAllCoinsInformation(array $data = [], string $version = Version::V1)
+    {
+        $this->type = 'GET';
+        $this->path = '/sapi/' . $version . '/capital/config/getall';
+        $this->data = $data;
+        return $this->exec();
+    }
 }
